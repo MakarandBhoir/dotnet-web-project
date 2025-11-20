@@ -1,0 +1,24 @@
+name: CD - Deploy After CI Success
+
+on:
+  workflow_run:
+    workflows: ["CI - Build & Test"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Triggered after successful CI pipeline
+        run: echo "CI successful. Running CD pipeline..."
+
+      # Your deployment steps (example)
+      - name: Deploying application
+        run: |
+          echo "Deploying .NET app..."
+          # EXAMPLE ONLY — replace with real deployment
+          # az webapp deploy ...
