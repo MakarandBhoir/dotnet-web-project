@@ -64,9 +64,9 @@ jobs:
         run: ls -R ./artifact
         
       # Step 3 — Deploy using publish profile
-      # - name: Deploy to Azure Web App
-      #   uses: azure/webapps-deploy@v2
-      #   with:
-      #     app-name: "<YOUR-APP-SERVICE-NAME>"
-      #     publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-      #     package: "./artifact/dotnet-app.zip"
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "myapp12362025"
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: "./artifact/dotnet-app.zip"
