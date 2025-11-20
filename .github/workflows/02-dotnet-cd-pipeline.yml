@@ -17,6 +17,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
+          run-id: ${{ github.event.workflow_run.id }}   # REQUIRED
           name: dotnet-app-build
           path: ./artifact
 
